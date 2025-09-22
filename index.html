@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Architects+Daughter&family=Flow+Circular&display=swap"
+        rel="stylesheet">
+    <title>Spotify Card</title>
+    <style>
+        /* *{
+            padding: 0;
+            margin: 0;
+        } */
+        body {
+            background-color: rgba(0, 0, 0, 0.911);
+            /* font-family: Arial, Helvetica, sans-serif; */
+            /* font-family: 'CircularStd', sans-serif; */
+            font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .whole-container {
+            /* background-color: rgba(128, 128, 128, 0.212); */
+            background-color: rgb(255 255 255 / 5%);
+            line-height: 1.3;
+
+            /* box-shadow: 2px 3px 7px black; */
+            padding: 1%;
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: center;
+            color: white;
+            max-width: 25%;
+            gap: 5px;
+            position: relative;
+            transition: 1s;
+        }
+
+        .whole-container:hover {
+            transform: scale(1.05);
+        }
+
+        .container-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 6px 0px;
+            padding: 8px 16px;
+            font-weight: 700;
+            line-height: 13.75px;
+            color: black;
+
+            height: 10px;
+        }
+
+        .container-top-1 {
+            background-color: #ffd2d7;
+        }
+
+        .container-top-2 {
+            background-color: #A5BBD1;
+        }
+
+        .container-top-3 {
+            background-color: #FFC862;
+        }
+
+        .container-top-4 {
+            background-color: #C4B1D4;
+        }
+
+        .container-top p {
+            top: 0%;
+            margin-top: 0;
+        }
+
+        .logo-sec {
+            display: flex;
+            /* flex-direction: row; */
+            align-items: center;
+            margin-top: 8%;
+            margin-bottom: -1%;
+            gap: 8px;
+        }
+
+        .amount-container {
+            margin-top: -8%;
+        }
+
+        .amount-container-h1-1 {
+            color: #ffd2d7;
+            margin-top: 3%;
+        }
+
+        .amount-container-h1-2 {
+            color: #A5BBD1;
+            margin-top: 3%;
+        }
+
+
+        .amount-container-h1-3 {
+            color: #FFC862;
+            margin-top: 3%;
+        }
+
+
+        .amount-container-h1-4 {
+            color: #C4B1D4;
+            margin-top: 3%;
+        }
+
+        .amount-container p {
+            margin-top: -4%;
+        }
+
+        .card-ul {
+            margin-left: -21px;
+            margin-top: -8px;
+            /* font-weight: 100; */
+            margin-bottom: 3%;
+            /* font-family: "Alan Sans", sans-serif; */
+            font-weight: 0;
+        }
+
+        /* .card-ul li {
+            font-weight: 100;
+        } */
+
+        .btn-container {
+            width: 100%;
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            width: 320px;
+            padding: 15px;
+            border-radius: 23px;
+            border: none;
+            font-weight: bolder;
+            /* transition: 0.5s; */
+        }
+
+        .btn-1 {
+            background: #ffd2d7;
+        }
+
+        .btn-2 {
+            background: #A5BBD1
+        }
+
+        .btn-3 {
+            background: #FFC862;
+        }
+
+        .btn-4 {
+            background: #C4B1D4;
+        }
+
+
+
+        .btn:hover {
+            transform: scale(1.04);
+            cursor: pointer;
+        }
+
+        .btn-container a:nth-child(2) input.btn {
+            background-color: transparent;
+            color: white;
+            border: 0.2px solid rgba(255, 255, 255, 0.363);
+
+        }
+
+        .card-footer {
+            text-align: center;
+            padding-top: 12px;
+            color: rgb(167, 167, 167);
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 400;
+            transition: 0.5s;
+        }
+
+        .card-footer-a {
+            color: rgb(167, 167, 167);
+        }
+
+        .card-footer-a:hover {
+            transform: scale(1.04);
+            font-weight: bolder;
+            display: inline-block;
+        }
+
+
+
+
+        @media (max-width: 1024px) {
+            .whole-container {
+                max-width: 290px;
+            }
+            .btn{
+                max-width: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whole-container {
+                max-width: 384px;
+                padding: 10px;
+            }
+            .btn{
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .whole-container {
+                max-width: 350px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .whole-container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .whole-container {
+                max-width: 85%;
+            }
+
+            .btn {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 5% auto;">
+        <!-- ----------------------------------------card-1--------------------------------------------- -->
+        <div class="whole-container">
+            <div class="container-top container-top-1">
+                <p>₹139 for 3 months</p>
+            </div>
+
+            <div class="logo-sec">
+                <p><i class="fa fa-spotify" style="font-size:26px;"></i></p>
+                <p> Premium</p>
+            </div>
+
+            <div class="amount-container">
+                <h1 class="amount-container-h1-1">Individual</h1>
+                <p><span style="font-weight: bolder;"> ₹139 for 3 months</span> <br>
+                    <span style="color: rgba(255, 255, 255, 0.39); font-size: 95%;">₹139/month after</span>
+                </p>
+            </div>
+
+            <hr
+                style="width: 98%; height: 1px; background-color: rgb(255 255 255 / 23%);; border: none; margin-top: -3px;">
+
+            <div class="card-ul">
+                <ul>
+                    <li>1 Premium account</li>
+                    <li>Cancel anytime</li>
+                    <li>Subscribe or one-time payment</li>
+                    <br>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <a
+                    href="https://payments.spotify.com/checkout/d2753968-a401-31d9-8ad9-3bba13c3050a/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=2025-q3-globalcampaign-intro"><input
+                        type="submit" class="btn btn-1" value="Try 3 months for ₹139"></a>
+                <a
+                    href="https://payments.spotify.com/checkout/d2753968-a401-31d9-8ad9-3bba13c3050a/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=2025-q3-globalcampaign-intro"><input
+                        type="submit" class="btn" value="one-time payment"></a>
+            </div>
+            <div class="card-footer">
+                <p>₹139 for 3 months, then ₹139 per month after. Offer only available if you haven’t tried Premium
+                    before.
+                    <a href="https://www.spotify.com/in-en/legal/premium-promotional-offer-terms/"
+                        class="card-footer-a">Terms apply.</a>
+                    Offer ends 23 September 2025.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ----------------------------------------card-2--------------------------------------------- -->
+
+        <div class="whole-container">
+            <div class="container-top container-top-2">
+                <p>₹139 for 3 months</p>
+            </div>
+
+            <div class="logo-sec">
+                <p><i class="fa fa-spotify" style="font-size:26px;"></i></p>
+                <p> Premium</p>
+            </div>
+
+            <div class="amount-container">
+                <h1 class="amount-container-h1-2">Family</h1>
+                <p><span style="font-weight: bolder;"> ₹229 for 2 months</span> <br>
+                    <span style="color: rgba(255, 255, 255, 0.39); font-size: 95%;">₹229/month after</span>
+                </p>
+            </div>
+
+            <hr
+                style="width: 98%; height: 1px; background-color: rgb(255 255 255 / 23%);; border: none; margin-top: -3px;">
+
+            <div class="card-ul">
+                <ul>
+                    <li>Up to 6 Premium accounts</li>
+                    <li>Control content marked as explicit</li>
+                    <li>Cancel anytime</li>
+                    <li>Subscribe or one-time payment</li>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <a
+                    href="https://payments.spotify.com/checkout/be16225f-d0c8-399c-a60c-86f4134977fa/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=default-new-family-master-2m-for-1-carrier-billing"><input
+                        type="submit" class="btn btn-2" value="Try 2 months for ₹229"></a>
+                <a
+                    href="https://payments.spotify.com/checkout/be16225f-d0c8-399c-a60c-86f4134977fa/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=default-new-family-master-2m-for-1-carrier-billing"><input
+                        type="submit" class="btn" value="one-time payment"></a>
+            </div>
+            <div class="card-footer">
+                <p>₹229 for 2 months, then ₹229 per month after. Offer only available if you haven’t tried Premium
+                    before. For up to 6 family members residing at the same address.
+                    <a href="https://www.spotify.com/in-en/legal/premium-promotional-offer-terms/"
+                        class="card-footer-a">Terms apply.</a>
+
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ----------------------------------------card-3--------------------------------------------- -->
+
+        <div class="whole-container">
+            <div class="container-top container-top-3">
+                <p>₹179 for 2 months</p>
+            </div>
+
+            <div class="logo-sec">
+                <p><i class="fa fa-spotify" style="font-size:26px;"></i></p>
+                <p> Premium</p>
+            </div>
+
+            <div class="amount-container">
+                <h1 class="amount-container-h1-3">Duo</h1>
+                <p><span style="font-weight: bolder;"> ₹179 for 2 months</span> <br>
+                    <span style="color: rgba(255, 255, 255, 0.39); font-size: 95%;">₹179/month after</span>
+                </p>
+            </div>
+
+            <hr
+                style="width: 98%; height: 1px; background-color: rgb(255 255 255 / 23%);; border: none; margin-top: -3px;">
+
+            <div class="card-ul">
+                <ul>
+                    <li>1 Premium account</li>
+                    <li>Cancel anytime</li>
+                    <li>Subscribe or one-time payment</li>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <a
+                    href="https://payments.spotify.com/checkout/10817f5e-ace7-35a7-a082-7061618902ca/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=default-duo-master-2m-for-1-carrier-billing"><input
+                        type="submit" class="btn btn-3" value="Try 2 months for ₹179"></a>
+                <a
+                    href="https://payments.spotify.com/checkout/10817f5e-ace7-35a7-a082-7061618902ca/?country=IN&ref=spotifycom_premium_plans&market=in-en&product=default-duo-master-2m-for-1-carrier-billing"><input
+                        type="submit" class="btn" value="one-time payment"></a>
+            </div>
+            <div class="card-footer">
+                <p>₹179 for 2 months, then ₹179 per month after. Offer only available if you haven’t tried Premium
+                    before. For couples who reside at the same address.
+                    <a href="https://www.spotify.com/in-en/legal/premium-promotional-offer-terms/"
+                        class="card-footer-a">Terms apply.</a>
+
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ----------------------------------------card-4--------------------------------------------- -->
+
+        <div class="whole-container">
+            <div class="container-top container-top-4">
+                <p>₹69 for 2 months</p>
+            </div>
+
+            <div class="logo-sec">
+                <p><i class="fa fa-spotify" style="font-size:26px;"></i></p>
+                <p> Premium</p>
+            </div>
+
+            <div class="amount-container">
+                <h1 class="amount-container-h1-4">Student</h1>
+                <p><span style="font-weight: bolder;"> ₹69 for 2 months</span> <br>
+                    <span style="color: rgba(255, 255, 255, 0.39); font-size: 95%;">₹69/month after</span>
+                </p>
+            </div>
+
+            <hr
+                style="width: 98%; height: 1px; background-color: rgb(255 255 255 / 23%);; border: none; margin-top: -3px;">
+
+            <div class="card-ul">
+                <ul>
+                    <li>1 verified Premium account</li>
+                    <li>Discount for eligible students</li>
+                    <li>Cancel anytime</li>
+                    <li>Subscribe or one-time payment</li>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <a href="https://www.spotify.com/in-en/student/verification/"><input type="submit" class="btn btn-4"
+                        value="Try 2 months for ₹69"></a>
+
+            </div>
+            <div class="card-footer">
+                <p>₹69 for 2 months, then ₹69 per month after. Offer available only to students at an accredited higher
+                    education institution and if you haven’t tried Premium before.
+                    <a href="https://www.spotify.com/in-en/legal/premium-promotional-offer-terms/"
+                        class="card-footer-a">Terms apply.</a>
+
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
